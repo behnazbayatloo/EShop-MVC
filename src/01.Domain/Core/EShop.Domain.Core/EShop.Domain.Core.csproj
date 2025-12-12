@@ -6,4 +6,29 @@
     <Nullable>enable</Nullable>
   </PropertyGroup>
 
+  <ItemGroup>
+    <Folder Include="BasketAgg\DTOs\" />
+    <Folder Include="BasketAgg\Enum\" />
+    <Folder Include="BasketItemAgg\Data\" />
+    <Folder Include="BasketItemAgg\AppService\" />
+    <Folder Include="BasketItemAgg\DTOs\" />
+    <Folder Include="BasketItemAgg\Service\" />
+    <Folder Include="CategoryAgg\DTOs\" />
+    <Folder Include="OrderAgg\DTOs\" />
+    <Folder Include="OrderItemAgg\AppService\" />
+    <Folder Include="OrderItemAgg\Data\" />
+    <Folder Include="OrderItemAgg\DTOs\" />
+    <Folder Include="OrderItemAgg\Service\" />
+    <Folder Include="ProductAgg\DTOs\" />
+    <Folder Include="UserAgg\Data\" />
+    <Folder Include="UserAgg\AppService\" />
+    <Folder Include="UserAgg\Service\" />
+    <Folder Include="_CommonEntities\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.AspNet.Identity.EntityFramework" Version="2.2.4" />
+    <PackageReference Include="Microsoft.Extensions.Identity.Stores" Version="9.0.0" />
+  </ItemGroup>
+
 </Project>

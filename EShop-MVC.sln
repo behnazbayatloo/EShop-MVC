@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
-VisualStudioVersion = 17.14.36414.22 d17.14
+VisualStudioVersion = 17.14.36414.22
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "01.Domain", "01.Domain", "{02EA681E-C7D8-13C7-8484-4AC65E1B71E8}"
 EndProject
@@ -31,6 +31,12 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EShop.Infra.Repository", "s
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EShop.Infra.Db.Sql", "src\02.Infrastructure\EShop.Infra.Db.Sql\EShop.Infra.Db.Sql.csproj", "{CF840589-13E8-494B-8204-4534A2715B7E}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EShop.Presentation.MVC", "src\03.Presentation\EShop.Presentation.MVC\EShop.Presentation.MVC.csproj", "{19588EE0-8BE3-43B6-8A69-28EA1A0F7AA7}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "FileServices", "FileServices", "{29CACBEA-8780-466A-88F3-DA0C0564EB1C}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EShop.Infra.Provider.FileServices", "src\02.Infrastructure\Provider\EShop.Infra.Provider.FileServices\EShop.Infra.Provider.FileServices.csproj", "{BBC3BE81-A24C-4FED-8C40-24B4A99AC611}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -57,6 +63,14 @@ Global
 		{CF840589-13E8-494B-8204-4534A2715B7E}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{CF840589-13E8-494B-8204-4534A2715B7E}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{CF840589-13E8-494B-8204-4534A2715B7E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{19588EE0-8BE3-43B6-8A69-28EA1A0F7AA7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{19588EE0-8BE3-43B6-8A69-28EA1A0F7AA7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{19588EE0-8BE3-43B6-8A69-28EA1A0F7AA7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{19588EE0-8BE3-43B6-8A69-28EA1A0F7AA7}.Release|Any CPU.Build.0 = Release|Any CPU
+		{BBC3BE81-A24C-4FED-8C40-24B4A99AC611}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BBC3BE81-A24C-4FED-8C40-24B4A99AC611}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BBC3BE81-A24C-4FED-8C40-24B4A99AC611}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BBC3BE81-A24C-4FED-8C40-24B4A99AC611}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -75,6 +89,9 @@ Global
 		{2C7E0414-6D26-4D1D-B0F5-E726F837D5B2} = {C60E1CDF-09B6-4E79-A6EF-AA03365CD700}
 		{C567EB57-704A-47CB-87E8-749E190BA629} = {04CEAA42-E118-4F6F-9380-B22AF6276A1A}
 		{CF840589-13E8-494B-8204-4534A2715B7E} = {BFB0ACD5-49D1-42B1-9F30-0E68778C72AB}
+		{19588EE0-8BE3-43B6-8A69-28EA1A0F7AA7} = {15A1F653-9BCA-4E90-8C65-C0848027EEF3}
+		{29CACBEA-8780-466A-88F3-DA0C0564EB1C} = {2C7E0414-6D26-4D1D-B0F5-E726F837D5B2}
+		{BBC3BE81-A24C-4FED-8C40-24B4A99AC611} = {29CACBEA-8780-466A-88F3-DA0C0564EB1C}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {2392A48C-0039-477C-80A1-FCE2F911C9D6}
