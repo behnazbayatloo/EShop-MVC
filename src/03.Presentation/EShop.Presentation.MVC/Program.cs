@@ -1,8 +1,10 @@
 using EShop.Domain.Core.UserAgg.Entity;
 using EShop.Infra.Db.Sql.DbCtx;
 using EShop.Presentation.MVC.Data;
+using EShop.Presentation.MVC.Middlewares;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
+using Serilog;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -15,6 +17,10 @@ builder.Services.AddIdentity<ApplicationUser, IdentityRole<int>>()
     .AddEntityFrameworkStores<AppDbContext>()
     .AddDefaultTokenProviders();
 
+builder.Host.UseSerilog((context, configuration) =>
+{
+    configuration.ReadFrom.Configuration(context.Configuration);
+});
 builder.Services.AddControllersWithViews();
 builder.Services.AddRazorPages();
 
@@ -54,7 +60,7 @@ builder.Services.ConfigureApplicationCookie(options =>
 
 
 var app = builder.Build();
-
+app.UseMiddleware<RequestLoggingMiddleware>();
 // Configure the HTTP request pipeline.
 if (app.Environment.IsDevelopment())
 {

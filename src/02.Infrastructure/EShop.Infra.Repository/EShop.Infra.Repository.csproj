@@ -7,10 +7,7 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Folder Include="BasketRepoAgg\" />
-    <Folder Include="CategoryRepoAgg\" />
-    <Folder Include="OrderRepoAgg\" />
-    <Folder Include="ProductRepoAgg\" />
+    <ProjectReference Include="..\..\01.Domain\Core\EShop.Domain.Core\EShop.Domain.Core.csproj" />
   </ItemGroup>
 
 </Project>
