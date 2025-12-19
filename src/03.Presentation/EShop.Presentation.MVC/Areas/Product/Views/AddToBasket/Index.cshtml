@@ -1,0 +1,75 @@
+﻿@model BasketViewModel
+@{
+    ViewData["Title"] = "سبد خرید";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h5 class="mb-3">سبد خرید</h5>
+
+<div class="card">
+    <div class="card-body">
+        <!-- پیام‌ها -->
+        @if (TempData["Error"] != null)
+        {
+            <div class="alert alert-danger">@TempData["Error"]</div>
+        }
+        @if (TempData["Success"] != null)
+        {
+            <div class="alert alert-success">@TempData["Success"]</div>
+        }
+
+        <div class="table-responsive">
+            <table class="table align-middle">
+                <thead>
+                    <tr>
+                        <th>محصول</th>
+                        <th style="width:140px">قیمت</th>
+                        <th style="width:180px">تعداد</th>
+                        <th style="width:160px">جمع</th>
+                        <th style="width:120px">عملیات</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    
+                    <!-- Placeholder cart items -->
+                     @foreach (var item in Model.BasketItems)
+                    {
+                        <tr>
+                            <td>
+                                <div class="fw-bold">@item.Title</div>
+                                
+                            </td>
+                            <td>@item.UnitPrice.ToString() </td>
+                            <td> @item.Quantity.ToString()
+                                @* <form class="d-flex gap-2" method="post" action="/cart/update">
+                                    <input type="hidden" name="itemId" value="" />
+                                    <input type="number" class="form-control" name="qty" value="1" min="1" />
+                                    <button class="btn btn-outline-dark">بروزرسانی</button>
+                                </form> *@
+                            </td>
+                            <td class="fw-bold">@item.Price.ToString()</td>
+                            <td>
+                                <form method="post" asp-area="Product" asp-controller="AddToBasket" asp-action="Remove" asp-route-itemid="@item.Id" class="m-0">
+                                    
+                                    <button class="btn btn-outline-danger w-100" type="submit">حذف</button>
+                                </form>
+                            </td>
+                        </tr>
+                    } 
+                </tbody>
+            </table>
+        </div>
+
+        <hr />
+
+        <div class="d-flex flex-column flex-md-row justify-content-between align-items-md-center gap-2">
+            <div class="fs-5">
+                مبلغ کل: <span class="fw-bold">@Model.TotalPrice.ToString()</span>
+            </div>
+            <div class="d-flex gap-2">
+                <a  class="btn btn-outline-secondary" asp-area="" asp-controller="Home" asp-action="Index">ادامه خرید</a>
+                <a asp-area="Customer" asp-controller="Checkout" asp-action="Index" class="btn btn-dark"> تسویه حساب</a>
+            </div>
+        </div>
+    </div>
+</div>

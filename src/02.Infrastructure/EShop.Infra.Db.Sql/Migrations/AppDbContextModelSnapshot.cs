@@ -557,6 +557,9 @@ namespace EShop.Infra.Db.Sql.Migrations
                     b.Property<int>("AccessFailedCount")
                         .HasColumnType("int");
 
+                    b.Property<double>("Balance")
+                        .HasColumnType("float");
+
                     b.Property<string>("ConcurrencyStamp")
                         .IsConcurrencyToken()
                         .HasColumnType("nvarchar(max)");
@@ -638,16 +641,18 @@ namespace EShop.Infra.Db.Sql.Migrations
                         {
                             Id = 1,
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "2afe5331-563d-4af5-824a-e93e9373deb8",
+                            Balance = 0.0,
+                            ConcurrencyStamp = "ebbe524b-b089-4342-ba6c-a1dbc9386d89",
                             CreatedAt = new DateTime(2025, 12, 11, 14, 30, 0, 0, DateTimeKind.Unspecified),
                             Email = "b@gmail.com",
                             EmailConfirmed = true,
                             FirstName = "behnaz",
                             LastName = "bayatloo",
                             LockoutEnabled = false,
-                            PasswordHash = "AQAAAAIAAYagAAAAEH0zr7IyrlpZfYVV0PMni099kJfme2mQ4LxxlCZ+2xcEdqqBa4d/sw3PF0x6q6lcow==",
+                            PasswordHash = "AQAAAAIAAYagAAAAEP2c/joNrBvkfxNU2/sqj5Kxoh1h/Dtl7EpZIL5pYjHFw8rS2E/IsvvLYHottNemYg==",
                             PhoneNumberConfirmed = false,
                             Role = 1,
+                            SecurityStamp = "8f6db601-5de7-417a-931f-fa67498f721f",
                             TwoFactorEnabled = false,
                             UserName = "behnaz"
                         },
@@ -655,16 +660,18 @@ namespace EShop.Infra.Db.Sql.Migrations
                         {
                             Id = 2,
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "3e1bde18-4b38-4cce-a2bb-4cefe01514f1",
+                            Balance = 0.0,
+                            ConcurrencyStamp = "15de2064-f5f7-4acd-88cf-99d8d633106e",
                             CreatedAt = new DateTime(2025, 12, 11, 14, 30, 0, 0, DateTimeKind.Unspecified),
                             Email = "beigi@gmail.com",
                             EmailConfirmed = true,
                             FirstName = "meysam",
                             LastName = "beigi",
                             LockoutEnabled = false,
-                            PasswordHash = "AQAAAAIAAYagAAAAEDo1jVeLGsanGD4aV5l+NbdoY9ihyGSEYjxXML99R3g9hUlh4aULbLOgHYcM5h2NRQ==",
+                            PasswordHash = "AQAAAAIAAYagAAAAEAMBjlWwf/V1h4xsZsXd1Zvw3FZYfSUc/R6JbabDP1K0Bfwhf6M/TbGGHl1SXwJGqg==",
                             PhoneNumberConfirmed = false,
                             Role = 2,
+                            SecurityStamp = "741063eb-e8b0-4dae-a2a4-b5fae0bfeff3",
                             TwoFactorEnabled = false,
                             UserName = "meysam"
                         });

@@ -27,8 +27,12 @@ namespace EShop.Infra.Db.Sql.EntityConfigurations
                    ,UserName="behnaz",
                     Email="b@gmail.com",
                     EmailConfirmed=true,
-                    PasswordHash= hasher.HashPassword(new ApplicationUser(), "12345"),
-                    CreatedAt=new DateTime(2025, 12, 11, 14, 30, 0)
+                    PasswordHash= hasher.HashPassword(new ApplicationUser() { UserName= "behnaz",
+                        Email = "b@gmail.com"
+                    }, "12345"),
+                    CreatedAt=new DateTime(2025, 12, 11, 14, 30, 0),
+                    SecurityStamp = Guid.NewGuid().ToString(),
+                    ConcurrencyStamp = Guid.NewGuid().ToString(),
 
                 },
                 new ApplicationUser()
@@ -41,8 +45,10 @@ namespace EShop.Infra.Db.Sql.EntityConfigurations
                     UserName = "meysam",
                     Email = "beigi@gmail.com",
                     EmailConfirmed = true,
-                    PasswordHash = hasher.HashPassword(new ApplicationUser(), "12345"),
-                    CreatedAt = new DateTime(2025, 12, 11, 14, 30, 0)
+                    PasswordHash = hasher.HashPassword(new ApplicationUser() { UserName="meysam", Email = "beigi@gmail.com" }, "12345"),
+                    CreatedAt = new DateTime(2025, 12, 11, 14, 30, 0),
+                    SecurityStamp = Guid.NewGuid().ToString(),
+                    ConcurrencyStamp = Guid.NewGuid().ToString(),
                 }
                 );
 

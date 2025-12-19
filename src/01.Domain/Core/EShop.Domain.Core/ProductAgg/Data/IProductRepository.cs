@@ -1,4 +1,5 @@
 ﻿using EShop.Domain.Core.CategoryAgg.Entity;
+using EShop.Domain.Core.ProductAgg.DTOs;
 using EShop.Domain.Core.ProductAgg.Entity;
 using System;
 using System.Collections.Generic;
@@ -10,14 +11,12 @@ namespace EShop.Domain.Core.ProductAgg.Data
 {
     public interface IProductRepository
     {
-        Task<IEnumerable<Product>> GetAllProducts();
+        Task<IEnumerable<GetProductDTO>> GetAllProducts(CancellationToken ct);
 
-        Task<Product> GetProductById(int id);
+        Task<GetProductDTO> GetProductById(int id,CancellationToken ct);
 
-        Task<IEnumerable<Product>> GetProductsByCategory(int categoryId);
-
-        Task<IEnumerable<Category>> GetAllCategories();
-        Task<Category>GetCategoryById(int id);
-
+        Task<ProductByCategory> GetProductsByCategory(int categoryId,CancellationToken ct);
+        Task<int> GetStock(int pid, CancellationToken ct);
+        Task<bool> UpdateStock(int pid, int newstock, CancellationToken ct);
     }
 }

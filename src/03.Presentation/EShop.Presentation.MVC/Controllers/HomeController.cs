@@ -1,21 +1,39 @@
+using EShop.Domain.Core.CategoryAgg.AppService;
+using EShop.Domain.Core.ProductAgg.AppService;
+using EShop.Domain.Core.ProductAgg.DTOs;
 using EShop.Presentation.MVC.Models;
+using Microsoft.AspNetCore.Http.HttpResults;
 using Microsoft.AspNetCore.Mvc;
+using System;
 using System.Diagnostics;
+using static Microsoft.EntityFrameworkCore.DbLoggerCategory.Model;
 
 namespace EShop.Presentation.MVC.Controllers
 {
-    public class HomeController : Controller
+    public class HomeController(ICategoryAppService _catapp,IProductAppService _prd,ILogger<HomeController> _logger) : Controller
     {
-        private readonly ILogger<HomeController> _logger;
+        
 
-        public HomeController(ILogger<HomeController> logger)
+        public async Task<IActionResult> Index(CancellationToken ct)
         {
-            _logger = logger;
-        }
+            var category = await _catapp.GetAllCategories(ct);
+            var cat = new HomeIndexViewModel
+            {
+                Categories = category
+            };
+            var products = await _prd.GetAllProducts(ct);
+            cat.Products = products.Select(p=> new GetProductDTO
+            {
+                Id=p.Id,
+                Title=p.Title,
+                Description= !string.IsNullOrEmpty(p.Description)?( p.Description.Length>7 ? p.Description.Substring(0,7)+"..." :p.Description):string.Empty,
+                ImageUrl =p.ImageUrl,
+                Stock = p.Stock,
+                Price=p.Price
+            }
 
-        public IActionResult Index()
-        {
-            return View();
+                ).ToList();
+            return View(cat);
         }
 
         public IActionResult Privacy()
@@ -30,3 +48,8 @@ namespace EShop.Presentation.MVC.Controllers
         }
     }
 }
+ //< div class= "form-group" >
+ //       < label asp -for= "CPost.ImageFile" > ?????? ?????(JPEG? ?????? 2MB) </ label >
+ //       < input type = "file" asp -for= "CPost.ImageFile" id = "imageInput" accept = "image/jpeg" class= "form-control" />
+ //       < span asp - validation -for= "CPost.ImageFile" class= "text-danger" ></ span >
+ //   </ div >

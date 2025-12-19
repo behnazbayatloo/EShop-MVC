@@ -1,0 +1,36 @@
+﻿@model List<BasketItemViewModel>
+
+@{
+    ViewData["Title"] = "جزییات سفارش";
+}
+<h2 class="mb-4">جزییات سفارش</h2>
+<table class="table table-bordered table-striped">
+    <thead class="table-dark">
+        <tr>
+            <th>ردیف</th>
+            <th>نام محصول</th>
+            <th>قیمت واحد</th>
+            <th>تعداد</th>
+            <th>مجموع</th>
+
+        </tr>
+    </thead>
+    <tbody>
+        <!-- نمونه داده‌ها -->
+        @{
+            for (int i = 0; i < Model.Count; i++)
+            {
+                <tr>
+                    <td>@(i+1)</td>
+                    <td>@Model[i].Title</td>
+                    <td>@Model[i].UnitPrice</td>
+                    <td>@Model[i].Quantity</td>
+                    <td>@Model[i].Price</td>
+
+                </tr>
+            }
+        }
+
+
+    </tbody>
+</table>

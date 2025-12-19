@@ -1,0 +1,39 @@
+﻿@using EShop.Presentation.MVC.Areas.Customer.Models
+@model UserViewModel
+@{
+    ViewData["Title"] = "مشخصات کاربر";
+}
+@if (TempData["SuccessMessage"]!= null)
+{
+    <div class="alert alert-success">
+        @TempData["SuccessMessage"]
+    </div>
+}
+<table class="table table-bordered table-striped">
+    <thead class="table-dark">
+        <tr>
+            <th>نام</th>
+            <th>نام خانوادگی</th>
+            <th>ایمیل</th>
+            <th>نام کاربری</th>
+            <th>موجودی</th>
+            <th>تغییر رمز عبور</th>
+
+        </tr>
+    </thead>
+    <tbody>
+        <!-- نمونه داده‌ها -->
+       
+                <tr>
+            <td>@Model.FirstName <a asp-action="ChangeFirstName">تغییر نام</a></td>
+            <td>@Model.LastName  <a asp-action="ChangeLastName">تغییر نام خانوادگی</a></td>
+                    <td>@Model.Email</td>
+                    <td>@Model.UserName </td>
+                    <td>@Model.Ballance</td>
+            <td><a asp-action="ChangePassword">تغییر رمز</a></td>
+                </tr>
+        
+
+
+    </tbody>
+</table>

@@ -1,0 +1,54 @@
+﻿@model List<BasketViewModel>
+
+@{
+    ViewData["Title"] = "سفارشات";
+}
+<h2 class="mb-4">سفارش‌های ثبت شده</h2>
+@if (TempData["SuccessMessage"]!= null)
+{
+    <div class="alert alert-success">
+        @TempData["SuccessMessage"]
+    </div>
+    
+}
+@if (Model==null || !Model.Any())
+{
+    <div class="alert alert-danger">
+        شما تا کنون سفارشی ثبت نکرده اید
+    </div>
+
+
+}
+else
+{
+    <table class="table table-bordered table-striped">
+        <thead class="table-dark">
+            <tr>
+                <th>ردیف</th>
+                <th>تاریخ سفارش</th>
+                <th>نمایش جزییات</th>
+                <th>تعداد</th>
+                <th>مجموع</th>
+
+            </tr>
+        </thead>
+        <tbody>
+            <!-- نمونه داده‌ها -->
+            @{
+                for (int i = 0; i < Model.Count; i++)
+                {
+                    <tr>
+                        <td>@(i + 1)</td>
+                        <td>@Model[i].Created</td>
+                        <td><a asp-area="Customer" asp-action="OrderDetails" asp-controller="ShowOrder" asp-route-id="@Model[i].Id" class="btn btn-info"> نمایش جزئیات </a></td>
+                        <td>@Model[i].BasketItemCount</td>
+                        <td>@Model[i].TotalPrice</td>
+
+                    </tr>
+                }
+            }
+
+
+        </tbody>
+    </table>
+}

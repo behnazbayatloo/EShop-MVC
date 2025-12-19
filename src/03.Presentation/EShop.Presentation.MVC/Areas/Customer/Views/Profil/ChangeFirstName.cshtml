@@ -1,0 +1,27 @@
+﻿@using EShop.Presentation.MVC.Areas.Customer.Models
+@model ChangeFirstNameViewModel
+
+@{
+    ViewData["Title"] = "تغییر نام";
+}
+
+<h2>تغییر نام</h2>
+
+<form asp-action="ChangeFirstName" method="post">
+    <div asp-validation-summary="All" class="text-danger"></div>
+    <div class="form-group">
+        <label asp-for="@Model.FirstName"></label>
+        <input asp-for="@Model.FirstName" class="form-control" />
+        <span asp-validation-for="@Model.FirstName" class="text-danger"></span>
+    </div>
+
+   
+
+    <button type="submit" class="btn btn-primary">ثبت تغییر</button>
+</form>
+
+@section Scripts {
+    @{
+        <partial name="_ValidationScriptsPartial" />
+    }
+}

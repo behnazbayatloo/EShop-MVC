@@ -14,13 +14,29 @@
     <PackageReference Include="Microsoft.AspNetCore.Mvc.Razor.RuntimeCompilation" Version="9.0.0" />
     <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="9.0.11" />
     <PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="9.0.11" />
+    <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="9.0.11" />
+    <PackageReference Include="Newtonsoft.Json" Version="13.0.4" />
     <PackageReference Include="Serilog.AspNetCore" Version="9.0.0" />
     <PackageReference Include="Serilog.Settings.Configuration" Version="9.0.0" />
     <PackageReference Include="Serilog.Sinks.File" Version="7.0.0" />
+    <PackageReference Include="Serilog.Sinks.Seq" Version="9.0.0" />
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\..\01.Domain\Services\EShop.Domain.AppServices\EShop.Domain.AppServices.csproj" />
+    <ProjectReference Include="..\..\01.Domain\Services\EShop.Domain.Services\EShop.Domain.Services.csproj" />
     <ProjectReference Include="..\..\02.Infrastructure\EShop.Infra.Db.Sql\EShop.Infra.Db.Sql.csproj" />
+    <ProjectReference Include="..\..\02.Infrastructure\EShop.Infra.Repository\EShop.Infra.Repository.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="Areas\Admin\Data\" />
+    <Folder Include="Areas\Admin\Models\" />
+    <Folder Include="Areas\Admin\Views\Dashboard\" />
+    <Folder Include="Areas\Customer\Data\" />
+    <Folder Include="Areas\Product\Data\" />
+    <Folder Include="Data\" />
+    <Folder Include="wwwroot\File\" />
   </ItemGroup>
 
 </Project>

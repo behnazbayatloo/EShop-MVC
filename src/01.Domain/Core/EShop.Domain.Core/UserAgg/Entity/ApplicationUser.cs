@@ -16,6 +16,10 @@ namespace EShop.Domain.Core.UserAgg.Entity
        
         public string FirstName { get; set; }
         public string LastName { get; set; }
+        public double Balance
+        {
+            get; set;
+        }
         public RoleEnum Role { get; set; }
 
         #region Navigation Prop

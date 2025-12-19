@@ -1,4 +1,5 @@
-﻿using System;
+﻿using EShop.Domain.Core.BasketAgg.DTOs;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -8,5 +9,6 @@ namespace EShop.Domain.Core.BasketAgg.Data
 {
     public interface IBasketRepository
     {
+        Task<int> Add(BasketDTO basket, CancellationToken ct);
     }
 }

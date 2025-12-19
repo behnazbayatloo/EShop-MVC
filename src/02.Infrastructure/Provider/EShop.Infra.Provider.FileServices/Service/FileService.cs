@@ -25,7 +25,7 @@ namespace EShop.Infra.Provider.FileServices.Service
 
         public async Task<string> Upload(IFormFile file, string folder, CancellationToken ct)
         {
-            var uploadsFolder = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot", "Files", folder);
+            var uploadsFolder = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot", "File", folder);
 
             if (!Directory.Exists(uploadsFolder))
                 Directory.CreateDirectory(uploadsFolder);
@@ -38,7 +38,7 @@ namespace EShop.Infra.Provider.FileServices.Service
                 await file.CopyToAsync(stream, ct);
             }
 
-            return Path.Combine("Files", folder, uniqueFileName);
+            return $"/File/{folder}/{uniqueFileName}";
         }
     
      }

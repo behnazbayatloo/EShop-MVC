@@ -1,4 +1,5 @@
-﻿using System;
+﻿using EShop.Domain.Core.CategoryAgg.DTOs;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -8,5 +9,6 @@ namespace EShop.Domain.Core.CategoryAgg.Data
 {
     public interface ICategoryRepository
     {
+        Task<List<GetCategoryDTO>> GetCategories(CancellationToken ct);
     }
 }
